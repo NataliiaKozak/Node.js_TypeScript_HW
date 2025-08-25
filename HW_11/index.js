@@ -1,5 +1,4 @@
 import express from 'express';
-
 // Создаем приложение Express
 const app = express();
 
