@@ -17,16 +17,16 @@ const Book = sequelize.define(
     author: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      // unique: true,
     },
     year: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        isInt: true, // Проверка на целое число
-        min: 1000, // Минимальный год
-        max: new Date().getFullYear(),
-      },
+      // validate: {
+      //   isInt: true, // Проверка на целое число
+      //   min: 1000, // Минимальный год
+      //   max: new Date().getFullYear(),
+      // },
     },
   },
   {

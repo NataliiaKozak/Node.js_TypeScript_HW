@@ -8,13 +8,13 @@ const config = {
     database: process.env.DB_NAME,
     host: process.env.DB_HOST,
     dialect: process.env.DB_DIALECT || 'mysql',
-    define: { 
-    charset: 'utf8mb4',
-    collate: 'utf8mb4_unicode_ci'
-  },
-    dialectOptions: {
-    charset: 'utf8mb4'
-  }
+    define: {
+      charset: 'utf8mb4',
+      collate: 'utf8mb4_unicode_ci',
+    },
+    //   dialectOptions: {
+    //   charset: 'utf8mb4'
+    // }
   },
   test: {
     username: process.env.DB_USERNAME,
@@ -22,7 +22,6 @@ const config = {
     database: process.env.TEST_DB_NAME,
     host: process.env.DB_HOST,
     dialect: process.env.DB_DIALECT || 'mysql',
-
   },
   production: {
     username: process.env.DB_USERNAME,

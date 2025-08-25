@@ -9,12 +9,15 @@ const app = express();
 const PORT = process.env.PORT || 3003;
 
 app.use(express.json());
+
+// Устанавливаем заголовок для ЛЮБОГО ответа
 // app.use((req, res, next) => {
-//   res.setHeader('Content-Type', 'application/json; charset=utf-8');
+//   res.set('Content-Type', 'text/html; charset=utf-8'); //исправлены метод и аргументы
 //   next();
 // });
 
 app.get('/', (_, res) => {
+  res.set('Content-Type', 'text/html; charset=utf-8');//добавлено строку 19
   res.send('Main page');
 });
 
@@ -33,6 +36,8 @@ app.post('/books', async (req, res) => {
     const book = await Book.create({ title, author, year });
     res.status(201).json(book);
   } catch (error) {
+    //ДОБАВЬTE этот вывод для диагностики
+      // console.error('Детали ошибки валидации:', error);
     res.status(400).json({ error: error.message });
   }
 });
@@ -77,6 +82,8 @@ app.delete('/books/:id', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+
 
 app.listen(PORT, async () => {
   try {

@@ -18,7 +18,7 @@ module.exports = {
           author: {
             type: Sequelize.STRING,
             allowNull: false,
-            unique: true,
+            // unique: true,
           },
           year: {
             type: Sequelize.INTEGER,
