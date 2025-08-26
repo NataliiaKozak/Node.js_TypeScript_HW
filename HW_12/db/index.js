@@ -8,7 +8,7 @@ const DB_NAME = process.env.MONGO_DB_NAME;
 const client = new MongoClient(URL);
 
 let dbConnection;
-
+let isConnected = false;
 
 async function connectToDatabase() {
   try {

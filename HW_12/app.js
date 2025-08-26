@@ -9,7 +9,6 @@ const PORT = process.env.PORT;
 
 app.use(express.json());
 
-// Тестовый маршрут
 app.get('/', (_, res) => {
   res.send('Home page');
 });
@@ -18,7 +17,28 @@ app.get('/', (_, res) => {
 app.post('/products', async (req, res) => {
   try {
     const db = getDb();
-    const result = await db.collection('products').insertOne(req.body);
+    const { name, price, description } = req.body;
+
+    // Простая проверка 1: есть ли имя и цена
+    // if (!name || !price) {
+    //   return res.status(400).json({ error: 'Name and price are required' });
+    // }
+
+    // Простая проверка 2: цена это число?
+    // if (isNaN(price)) {
+    //   return res.status(400).json({ error: 'Price must be a valid number' });
+    // }
+
+    // Создаем продукт
+    const product = {
+      name,
+      price: Number(price), // Простое преобразование в число
+      description: description || '',
+    };
+
+    // Сохраняем в базу
+    const result = await db.collection('products').insertOne(product);
+
     res.status(201).send({ message: 'Product created', id: result.insertedId });
   } catch (err) {
     res.status(500).send({ error: err.message });
