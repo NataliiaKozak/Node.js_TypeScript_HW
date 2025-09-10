@@ -19,15 +19,15 @@ app.post('/products', async (req, res) => {
     const db = getDb();
     const { name, price, description } = req.body;
 
-    // Простая проверка 1: есть ли имя и цена
-    // if (!name || !price) {
-    //   return res.status(400).json({ error: 'Name and price are required' });
-    // }
+    //Простая проверка 1: есть ли имя и цена
+    if (!name || !price) {
+      return res.status(400).json({ error: 'Name and price are required' });
+    }
 
-    // Простая проверка 2: цена это число?
-    // if (isNaN(price)) {
-    //   return res.status(400).json({ error: 'Price must be a valid number' });
-    // }
+    //Простая проверка 2: цена это число?
+    if (isNaN(price)) {
+      return res.status(400).json({ error: 'Price must be a valid number' });
+    }
 
     // Создаем продукт
     const product = {

@@ -25,6 +25,9 @@ app.get('/products/:id', (req, res) => {
 
 // Маршрут для создания нового продукта (POST /products)
 app.post('/products', (req, res) => {
+  if (!req.body.name || !req.body.price) {
+    return res.status(400).json({ message: 'Name and price are required' }); //без валидации можно отправить пустой объект и продукт всё равно добавится с undefined полями
+  }
   const newProduct = {
     id: products.length + 1,
     name: req.body.name,
