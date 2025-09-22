@@ -14,6 +14,9 @@ app.get('/', (_: Request, res: Response) => {
 
 app.post('/', (req: Request, res: Response) => {
   const { name, message } = req.body;
+  if (!name || !message) {
+    return res.status(400).json({ error: 'Укажите name и message' });
+  }
   res.send(`Привет, ${name}! Напоминание о важном мероприятии: "${message}"`);
 });
 
