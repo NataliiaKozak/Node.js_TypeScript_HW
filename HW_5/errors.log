@@ -1,0 +1,10 @@
+[2025-09-25 22:43:16] Error: Test error for log
+    at Server.<anonymous> (file:///F:/%D0%98%D0%A2/NODE/Node.js_TypeScript_HW/HW_5/task2.js:13:11)
+    at Server.emit (node:events:518:28)
+    at parserOnIncoming (node:_http_server:1153:12)
+    at HTTPParser.parserOnHeadersComplete (node:_http_common:117:17)
+[2025-09-25 22:43:16] Error: Test error for log
+    at Server.<anonymous> (file:///F:/%D0%98%D0%A2/NODE/Node.js_TypeScript_HW/HW_5/task2.js:13:11)
+    at Server.emit (node:events:518:28)
+    at parserOnIncoming (node:_http_server:1153:12)
+    at HTTPParser.parserOnHeadersComplete (node:_http_common:117:17)
