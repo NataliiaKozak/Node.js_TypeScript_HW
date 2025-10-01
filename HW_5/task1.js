@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3003;
 const server = http.createServer((req, res) => {
     const authHeader = req.headers['authorization'];
 
-    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
 
     if (!authHeader) {
         res.statusCode = 401;
